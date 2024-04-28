@@ -18,7 +18,7 @@ RUN apt-get -y install vim
 RUN ln -fs /usr/share/zoneinfo/America/Denver /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata
 
 # Create a non-root user
-RUN useradd -m yocto-user
+RUN useradd -m yoctodev
 RUN echo "yoctodev:yocto" | chpasswd
 RUN echo 'yoctodev ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/yoctodev
 
