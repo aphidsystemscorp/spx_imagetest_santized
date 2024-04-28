@@ -50,7 +50,7 @@ COPY --chmod=0444 --chown=yoctodev local.conf /home/yoctodev/build/conf/local.co
 COPY --chmod=0500 --chown=yoctodev _init_env.sh /home/yoctodev/_init_env.sh
 RUN /bin/bash -c /home/yoctodev/_init_env.sh
 
-#COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
+COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
 
 WORKDIR /home/yoctodev
 CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env && bash"]
