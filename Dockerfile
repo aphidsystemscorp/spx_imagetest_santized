@@ -39,18 +39,17 @@ WORKDIR /home/yocto-user/poky
 RUN git checkout bdfabf0409896e44ee6bd4a94cf43beb6b1c4490
 WORKDIR /home/yocto-user
 
-# Setup build environment and fetch all necessary sources
-RUN /bin/bash -c "source oe-init-build-env && bitbake --runall=fetch core-image-minimal"
-
-#WORKDIR /home/yocto-user/poky
-#source oe-init-build-env
-
-WORKDIR /home/yocto-user
 RUN git clone -b dunfell https://github.com/openembedded/meta-openembedded.git
 WORKDIR /home/yocto-user/meta-openembedded
 RUN git checkout 9d722e88d79e3a19d2ae07ac922109c18e2f5559
 
-RUN mkdir  /home/yocto-user/build
+WORKDIR /home/yocto-user
+RUN mkdir -p /home/yocto-user/build/conf
+COPY bblayers.conf /home/yocto-user/build/conf/bblayers.conf
+COPY local.conf /home/yocto-user/build/conf/local.conf
+COPY _init_env.sh _init_env.sh
+RUN /bin/bash _init_env.sh
+#RUN /bin/base -c "source /home/yocto-user/poky/oe-init-build-env && bitbake --runall=fetch rcar-image-minimal"
 
-WORKDIR /home/yocto-user/
+WORKDIR /home/yocto-user
 CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env && bash"]

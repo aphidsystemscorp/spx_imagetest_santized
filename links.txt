@@ -1,0 +1,1 @@
+https://github.com/renesas-rcar/meta-renesas/blob/dunfell/meta-rcar-adas/recipes-graphics/mesa/mesa_%25.bbappend
