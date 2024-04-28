@@ -19,11 +19,11 @@ RUN ln -fs /usr/share/zoneinfo/America/Denver /etc/localtime && dpkg-reconfigure
 
 # Create a non-root user
 RUN useradd -m yocto-user
-RUN echo "yocto-user:yocto" | chpasswd
-RUN echo 'yocto-user ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/yocto-user
+RUN echo "yoctodev:yocto" | chpasswd
+RUN echo 'yoctodev ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/yoctodev
 
-USER yocto-user
-WORKDIR /home/yocto-user
+USER yoctodev
+WORKDIR /home/yoctodev
 
 # Set up locale
 RUN sudo locale-gen en_US.UTF-8
@@ -35,21 +35,23 @@ RUN git clone -b dunfell https://github.com/renesas-rcar/meta-renesas meta-renes
 
 # Set up build environment
 RUN git clone -b dunfell git://git.yoctoproject.org/poky.git
-WORKDIR /home/yocto-user/poky
+WORKDIR /home/yoctodev/poky
 RUN git checkout bdfabf0409896e44ee6bd4a94cf43beb6b1c4490
-WORKDIR /home/yocto-user
+WORKDIR /home/yoctodev
 
 RUN git clone -b dunfell https://github.com/openembedded/meta-openembedded.git
-WORKDIR /home/yocto-user/meta-openembedded
+WORKDIR /home/yoctodev/meta-openembedded
 RUN git checkout 9d722e88d79e3a19d2ae07ac922109c18e2f5559
 
-WORKDIR /home/yocto-user
-RUN mkdir -p /home/yocto-user/build/conf
-COPY bblayers.conf /home/yocto-user/build/conf/bblayers.conf
-COPY local.conf /home/yocto-user/build/conf/local.conf
+WORKDIR /home/yoctodev
+RUN mkdir -p /home/yoctodev/build/conf
+COPY bblayers.conf /home/yoctodev/build/conf/bblayers.conf
+COPY local.conf /home/yoctodev/build/conf/local.conf
 COPY _init_env.sh _init_env.sh
 RUN /bin/bash _init_env.sh
-#RUN /bin/base -c "source /home/yocto-user/poky/oe-init-build-env && bitbake --runall=fetch rcar-image-minimal"
 
-WORKDIR /home/yocto-user
+COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
+#RUN /bin/base -c "source /home/yoctodev/poky/oe-init-build-env && bitbake --runall=fetch rcar-image-minimal"
+
+WORKDIR /home/yoctodev
 CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env && bash"]
