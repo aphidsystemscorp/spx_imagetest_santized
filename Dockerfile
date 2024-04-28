@@ -45,13 +45,12 @@ RUN git checkout 9d722e88d79e3a19d2ae07ac922109c18e2f5559
 
 WORKDIR /home/yoctodev
 RUN mkdir -p /home/yoctodev/build/conf
-COPY bblayers.conf /home/yoctodev/build/conf/bblayers.conf
-COPY local.conf /home/yoctodev/build/conf/local.conf
-COPY _init_env.sh _init_env.sh
-RUN /bin/bash _init_env.sh
+COPY --chmod=0444 --chown=yoctodev bblayers.conf /home/yoctodev/build/conf/bblayers.conf
+COPY --chmod=0444 --chown=yoctodev local.conf /home/yoctodev/build/conf/local.conf
+COPY --chmod=0500 --chown=yoctodev _init_env.sh /home/yoctodev/_init_env.sh
+RUN /bin/bash -c /home/yoctodev/_init_env.sh
 
-COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
-#RUN /bin/base -c "source /home/yoctodev/poky/oe-init-build-env && bitbake --runall=fetch rcar-image-minimal"
+#COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
 
 WORKDIR /home/yoctodev
 CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env && bash"]
