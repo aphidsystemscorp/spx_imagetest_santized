@@ -48,8 +48,21 @@ RUN mkdir -p /home/yoctodev/build/conf
 COPY --chmod=0444 --chown=yoctodev bblayers.conf /home/yoctodev/build/conf/bblayers.conf
 COPY --chmod=0444 --chown=yoctodev local.conf /home/yoctodev/build/conf/local.conf
 COPY --chmod=0500 --chown=yoctodev _init_env.sh /home/yoctodev/_init_env.sh
+#RUN mkdir -p /home/yoctodev/meta-custom/conf
+#RUN mkdir -p /home/yoctodev/meta-custom/recipes-custom/rogue-ddk
+#RUN mkdir -p /home/yoctodev/meta-custom/recipes-core/images
+#COPY --chmod=0500 --chown=yoctodev custom_layer.conf /home/yoctodev/meta-custom/conf/layer.conf
+#COPY --chmod=0500 --chown=yoctodev custom_image.bb /home/yoctodev/meta-custom/recipes-core/images/custom_image.bb
 RUN /bin/bash -c /home/yoctodev/_init_env.sh
 
+WORKDIR /home/yoctodev
+RUN git clone https://github.com/renesas-rcar/rcar-gfx.git
+WORKDIR /home/yoctodev/rcar-gfx
+RUN git checkout V4Hx/v1.3.1-2
+WORKDIR /home/yoctodev/rcar-gfx/gfxdrv
+RUN tar xvf GSX_KM_V4H.tar.bz2
+
+WORKDIR /home/yoctodev
 COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
 
 WORKDIR /home/yoctodev
