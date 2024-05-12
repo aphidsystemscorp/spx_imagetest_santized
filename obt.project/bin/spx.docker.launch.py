@@ -7,8 +7,7 @@ from obt import path as obt_path
 from spx import path as spx_path
 
 bitbakes = spx_path.root/"bitbakes"
-this_local_conf = bitbakes/"local.conf"
-this_bblayers_conf = bitbakes/"bblayers.conf"
+tgt_bin = spx_path.root/"tgt_bin"
 
 output_products = spx_path.root/"output_products"
 #this_rogue_ddk = str(spx_path.root/"rogue_ddk.bb")
@@ -20,12 +19,14 @@ H = path.Path("/home/yoctodev")
 B = H/"build"
 
 d_cmd = ["docker","run","-it"] \
+      +  vmapstr(tgt_bin/"list_images.sh",H/"list_images.sh") \
+      +  vmapstr(tgt_bin/"initial_fetch.sh",H/"initial_fetch.sh") \
+      +  vmapstr(bitbakes/"local.conf",B/"conf/local.conf") \
+      +  vmapstr(bitbakes/"bblayers.conf",B/"conf/bblayers.conf") \
       +  vmapstr(output_products/"cache",B/"cache") \
       +  vmapstr(output_products/"sstate-cache",B/"sstate-cache") \
       +  vmapstr(output_products/"downloads",B/"downloads") \
       +  vmapstr(output_products/"tmp-glibc",B/"tmp-glibc") \
-      +  vmapstr(this_local_conf,B/"conf/local.conf") \
-      +  vmapstr(spx_path.root/"list_images.sh",B/"list_images.sh") \
       +  ["yocto-build"]
 
       #+  #vmapstr(this_local_conf,B/"conf/local.conf"), \

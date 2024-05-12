@@ -18,7 +18,8 @@ RUN apt-get -y install vim
 RUN ln -fs /usr/share/zoneinfo/America/Denver /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata
 
 # Create a non-root user
-RUN useradd -m yoctodev
+RUN groupadd -g 1000 yoctodev
+RUN useradd -m yoctodev -u 1000 -g 1000
 RUN echo "yoctodev:yocto" | chpasswd
 RUN echo 'yoctodev ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/yoctodev
 
@@ -45,15 +46,15 @@ RUN git checkout 9d722e88d79e3a19d2ae07ac922109c18e2f5559
 
 WORKDIR /home/yoctodev
 RUN mkdir -p /home/yoctodev/build/conf
-COPY --chmod=0444 --chown=yoctodev bitbakes/bblayers.conf /home/yoctodev/build/conf/bblayers.conf
-COPY --chmod=0444 --chown=yoctodev bitbakes/local.conf /home/yoctodev/build/conf/local.conf
-COPY --chmod=0500 --chown=yoctodev tgt_bin/_init_env.sh /home/yoctodev/_init_env.sh
+#COPY --chmod=0500 --chown=yoctodev docker_utils/initial_fetch.sh /home/yoctodev/initial_fetch.sh
+
 #RUN mkdir -p /home/yoctodev/meta-custom/conf
 #RUN mkdir -p /home/yoctodev/meta-custom/recipes-custom/rogue-ddk
 #RUN mkdir -p /home/yoctodev/meta-custom/recipes-core/images
 #COPY --chmod=0500 --chown=yoctodev custom_layer.conf /home/yoctodev/meta-custom/conf/layer.conf
 #COPY --chmod=0500 --chown=yoctodev custom_image.bb /home/yoctodev/meta-custom/recipes-core/images/custom_image.bb
-RUN /bin/bash -c /home/yoctodev/_init_env.sh
+
+#RUN /bin/bash -c /home/yoctodev/initial_fetch.sh
 
 WORKDIR /home/yoctodev
 RUN git clone https://github.com/renesas-rcar/rcar-gfx.git
