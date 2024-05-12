@@ -1,0 +1,4 @@
+{
+  "name": "spx",
+  "autoexec": "scripts/init_env.py"
+}

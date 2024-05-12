@@ -3,13 +3,13 @@
 
 import os, sys
 from obt import path, command
+from obt import path as obt_path
+from spx import path as spx_path
 
-this_dir = path.Path(os.path.dirname(os.path.realpath(__file__)))
-
-this_local_conf = this_dir/"local.conf"
-this_bblayers_conf = this_dir/"bblayers.conf"
-output_products = this_dir/"output_products"
-#this_rogue_ddk = str(this_dir/"rogue_ddk.bb")
+this_local_conf = spx_path.root/"local.conf"
+this_bblayers_conf = spx_path.root/"bblayers.conf"
+output_products = spx_path.root/"output_products"
+#this_rogue_ddk = str(spx_path.root/"rogue_ddk.bb")
 
 def vmapstr(src,dest):
     return ["-v", str(src)+":"+str(dest)]
@@ -23,11 +23,11 @@ d_cmd = ["docker","run","-it"] \
       +  vmapstr(output_products/"downloads",B/"downloads") \
       +  vmapstr(output_products/"tmp-glibc",B/"tmp-glibc") \
       +  vmapstr(this_local_conf,B/"conf/local.conf") \
-      +  vmapstr(this_dir/"list_images.sh",B/"list_images.sh") \
+      +  vmapstr(spx_path.root/"list_images.sh",B/"list_images.sh") \
       +  ["yocto-build"]
 
       #+  #vmapstr(this_local_conf,B/"conf/local.conf"), \
-#         vmapstr(this_dir/"custom_image.bb",B/"conf/local.conf"),
-#         vmapstr(this_dir/"rogue_ddk.bb",H/"meta-custom/recipes-custom/rogue-ddk/rogue_ddk.bb"),
+#         vmapstr(spx_path.root/"custom_image.bb",B/"conf/local.conf"),
+#         vmapstr(spx_path.root/"rogue_ddk.bb",H/"meta-custom/recipes-custom/rogue-ddk/rogue_ddk.bb"),
 
-command.run(d_cmd, working_dir=this_dir)
+command.run(d_cmd, working_dir=spx_path.root,do_log=True)
