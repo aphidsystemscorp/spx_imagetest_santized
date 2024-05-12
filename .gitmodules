@@ -1,9 +1,9 @@
 [submodule "poky"]
-	path = poky
+	path = submodules/poky
 	url = git://git.yoctoproject.org/poky.git
 [submodule "meta-openembedded"]
-	path = meta-openembedded
+	path = submodules/meta-openembedded
 	url = https://github.com/openembedded/meta-openembedded.git
 [submodule "rcar-gfx"]
-	path = rcar-gfx
+	path = submodules/rcar-gfx
 	url = https://github.com/renesas-rcar/rcar-gfx.git
