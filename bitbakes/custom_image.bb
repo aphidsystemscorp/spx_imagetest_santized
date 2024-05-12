@@ -12,6 +12,7 @@ require rcar-image-minimal.bb
 # Add the custom GFX layer
 IMAGE_INSTALL_append = " \
     my-custom-gfx-layer \
+    vim \
 "
 
 # Set any additional configuration variables here if needed
