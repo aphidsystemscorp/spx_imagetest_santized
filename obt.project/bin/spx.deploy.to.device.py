@@ -4,8 +4,11 @@ import datetime, os
 from obt import path, pathtools, command
 from spx import path as spx_path
 
+user = os.environ["USER"]
 home = path.Path(os.environ["HOME"])
 output_products = spx_path.root/"output_products"
+submodules = spx_path.root/"submodules"
+rogue = submodules/"rogue"
 deploy_src = output_products/"deploy"
 dest_tftp = path.Path("/srv/tftp")
 dest_nfs = path.Path("/export/")
@@ -49,6 +52,10 @@ command.run(["sudo","tar","-xvf",latest],do_log=True)
 os.chdir(dest_nfs)
 command.run(["sudo","rm","-rf", "rfs"])
 command.run(["sudo","cp","-r",latest_stripped,"rfs"])
+X = " ".join(["sudo","cp","-r","%s/*"%str(rogue),str(dest_nfs/"rfs")+"/"])
+print(X)
+os.system(X)
+command.run(["sudo","chown","-R","%s:%s"%(user,user),dest_nfs/"rfs"],do_log=True)
 command.run(["rm","-f",home/".ssh"/"known_hosts"],do_log=True)
 
 ####################
