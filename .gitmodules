@@ -7,3 +7,6 @@
 [submodule "rcar-gfx"]
 	path = submodules/rcar-gfx
 	url = https://github.com/renesas-rcar/rcar-gfx.git
+[submodule "submodules/meta-renesas"]
+	path = submodules/meta-renesas
+	url = https://github.com/renesas-rcar/meta-renesas

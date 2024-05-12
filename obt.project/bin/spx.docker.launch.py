@@ -29,9 +29,7 @@ d_cmd = ["docker","run","-it"] \
       +  vmapstr(output_products/"sstate-cache",B/"sstate-cache") \
       +  vmapstr(output_products/"downloads",B/"downloads") \
       +  vmapstr(output_products/"tmp-glibc",B/"tmp-glibc") \
-      +  vmapstr(submodules/"poky",H/"poky") \
-      +  vmapstr(submodules/"meta-openembedded",H/"meta-openembedded") \
-      +  vmapstr(submodules/"rcar-gfx",H/"rcar-gfx") \
+      +  vmapstr(output_products/"deploy",B/"deploy") \
       +  ["yocto-build"]
 
       #+  #vmapstr(this_local_conf,B/"conf/local.conf"), \
