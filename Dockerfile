@@ -45,9 +45,9 @@ RUN git checkout 9d722e88d79e3a19d2ae07ac922109c18e2f5559
 
 WORKDIR /home/yoctodev
 RUN mkdir -p /home/yoctodev/build/conf
-COPY --chmod=0444 --chown=yoctodev bblayers.conf /home/yoctodev/build/conf/bblayers.conf
-COPY --chmod=0444 --chown=yoctodev local.conf /home/yoctodev/build/conf/local.conf
-COPY --chmod=0500 --chown=yoctodev _init_env.sh /home/yoctodev/_init_env.sh
+COPY --chmod=0444 --chown=yoctodev bitbakes/bblayers.conf /home/yoctodev/build/conf/bblayers.conf
+COPY --chmod=0444 --chown=yoctodev bitbakes/local.conf /home/yoctodev/build/conf/local.conf
+COPY --chmod=0500 --chown=yoctodev tgt_bin/_init_env.sh /home/yoctodev/_init_env.sh
 #RUN mkdir -p /home/yoctodev/meta-custom/conf
 #RUN mkdir -p /home/yoctodev/meta-custom/recipes-custom/rogue-ddk
 #RUN mkdir -p /home/yoctodev/meta-custom/recipes-core/images
@@ -63,7 +63,7 @@ WORKDIR /home/yoctodev/rcar-gfx/gfxdrv
 RUN tar xvf GSX_KM_V4H.tar.bz2
 
 WORKDIR /home/yoctodev
-COPY --chmod=0500 --chown=yoctodev _build_rcar.sh /home/yoctodev/build/build_rcar.sh
+COPY --chmod=0500 --chown=yoctodev tgt_bin/_build_rcar.sh /home/yoctodev/build/build_rcar.sh
 
 WORKDIR /home/yoctodev
 CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env && bash"]
