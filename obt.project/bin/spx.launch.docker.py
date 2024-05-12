@@ -6,8 +6,10 @@ from obt import path, command
 from obt import path as obt_path
 from spx import path as spx_path
 
-this_local_conf = spx_path.root/"local.conf"
-this_bblayers_conf = spx_path.root/"bblayers.conf"
+bitbakes = spx_path.root/"bitbakes"
+this_local_conf = bitbakes/"local.conf"
+this_bblayers_conf = bitbakes/"bblayers.conf"
+
 output_products = spx_path.root/"output_products"
 #this_rogue_ddk = str(spx_path.root/"rogue_ddk.bb")
 
