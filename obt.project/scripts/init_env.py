@@ -58,3 +58,6 @@ def setup():
   ##############################################
 
   print(deco.yellow("Initialized Spx Build Enviroment"))
+
+def extend_bashrc():
+  return ["spx.goto.root() { cd ${SPX_WORKSPACE_DIR}; };\n"];
