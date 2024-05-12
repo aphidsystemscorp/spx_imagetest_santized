@@ -1,1 +1,4 @@
 output_products
+__pycache__
+*.pyc
+
