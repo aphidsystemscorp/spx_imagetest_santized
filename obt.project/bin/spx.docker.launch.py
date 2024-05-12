@@ -23,8 +23,10 @@ d_cmd = ["docker","run","-it"] \
       +  vmapstr(tgt_bin/"list_images.sh",B/"list_images.sh") \
       +  vmapstr(tgt_bin/"initial_fetch.sh",B/"initial_fetch.sh") \
       +  vmapstr(tgt_bin/"build_rcar.sh",B/"build_rcar.sh") \
+      +  vmapstr(tgt_bin/"build_gfx.sh",B/"build_gfx.sh") \
       +  vmapstr(bitbakes/"local.conf",B/"conf/local.conf") \
       +  vmapstr(bitbakes/"bblayers.conf",B/"conf/bblayers.conf") \
+      +  vmapstr(submodules/"rogue_km",B/"rogue_km") \
       +  vmapstr(output_products/"cache",B/"cache") \
       +  vmapstr(output_products/"sstate-cache",B/"sstate-cache") \
       +  vmapstr(output_products/"downloads",B/"downloads") \
