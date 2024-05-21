@@ -11,5 +11,5 @@ whitehawk="${builddir}/tmp-glibc/deploy/images/whitehawk"
 dest="${home}/build/deploy"
 
 sudo cp  ${whitehawk}/Image ${dest}/
-sudo cp  ${whitehawk}/r8a779g0-whitehawk.dtb ${dest}/
+sudo cp  ${whitehawk}/r8a779g0-whitehawk-native.dtb ${dest}/r8a779g0-whitehawk.dtb
 sudo cp  ${whitehawk}/*rootfs*.bz2 ${dest}/

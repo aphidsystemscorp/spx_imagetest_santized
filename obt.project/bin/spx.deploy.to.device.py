@@ -18,7 +18,7 @@ dest_nfs = path.Path("/export/")
 print(output_products)
 
 latest_tarball = None
-x = pathtools.patglob(str(deploy_src), "rcar-image-minimal-v4h-*.rootfs.tar.bz2")
+x = pathtools.patglob(str(deploy_src), "rcar-image-adas-v4h-*.rootfs.tar.bz2")
 x = sorted(x, key=os.path.getmtime, reverse=True)
 latest = x[0]
 latest_stripped = os.path.basename(latest).replace(".tar.bz2","")
@@ -39,7 +39,7 @@ def copy_recursive(src,dest):
 ####################
 
 copy(deploy_src/"Image",dest_tftp/"Image")
-copy(deploy_src/"r8a779g0-whitehawk.dtb",dest_tftp/"r8a779g0-whitehawk.dtb")
+copy(deploy_src/"r8a779g0-whitehawk-native.dtb",dest_tftp/"r8a779g0-whitehawk.dtb")
 
 ####################
 # root filesystem
