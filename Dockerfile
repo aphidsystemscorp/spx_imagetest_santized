@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    gawk wget git-core diffstat unzip texinfo \
+    gawk wget git-core diffstat unzip texinfo  \
+#    gcc-multilib libarchive-zip-perl \
     build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
     xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa \
     libsdl1.2-dev pylint3 xterm tzdata 
@@ -30,8 +31,8 @@ ARG SGFX=submodules/rcar-gfx
 #######################################
 
 # Create a non-root user
-RUN groupadd -g 9000 yoctodev
-RUN useradd -m yoctodev -u 9000 -g 9000
+RUN groupadd -g 1000 yoctodev
+RUN useradd -m yoctodev -u 1000 -g 1000
 RUN echo "yoctodev:yocto" | chpasswd
 RUN echo 'yoctodev ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/yoctodev
 
@@ -63,4 +64,8 @@ WORKDIR $HOME
 RUN mkdir -p $HOME/build/conf
 COPY --chown=yoctodev $SADAS/bblayers.conf $DCONF/bblayers.conf
 COPY --chown=yoctodev $SADAS/local.conf $DCONF/local.conf
+
+ENV KBLD=~/build/tmp/work/whitehawk-poky-linux/linux-renesas/5.10.147+gitAUTOINC+4b2bf1dfb8-r1/linux-whitehawk-standard-build
+ENV KSRC=~/build/tmp/work-shared/whitehawk/kernel-source
+
 CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env build && bash"]

@@ -14,6 +14,8 @@
     "*.inc": "bitbake"
   }
   "files.exclude": {
-    "**/output_products": true
+    "**/output_products": true,
+    "**/deploy": true,
+    "**/tmp": false
   }
 }

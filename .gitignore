@@ -1,4 +1,6 @@
 output_products
+deploy
+tmp
 __pycache__
 *.pyc
 
