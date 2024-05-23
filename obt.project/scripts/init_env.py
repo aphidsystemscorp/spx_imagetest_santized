@@ -23,7 +23,7 @@ def setup():
   scripts_dir = obt.path.Path(os.path.dirname(file_path))
   project_dir = scripts_dir/".."
   spxbin_dir = project_dir/"bin"
-  spxdir = os.path.normpath(project_dir/"..")
+  spxdir = obt.path.Path(os.path.normpath(project_dir/".."))
   assert(spxbin_dir.exists())
 
   ##############################################
@@ -31,6 +31,8 @@ def setup():
   ##############################################
 
   obt.env.set("SPX_WORKSPACE_DIR",spxdir)
+  obt.env.set("SPX_KERNELSRC_DIR",spxdir/"tmp"/"work-shared"/"whitehawk"/"kernel-source")
+  obt.env.set("SPX_FSROOTSTAGE_DIR",spxdir/"tmp"/"work"/"whitehawk-poky-linux"/"rcar-image-adas-dev"/"1.0-r0"/"rootfs")
 
   ##############################################
   # add orkid scripts to enviromment PATH
@@ -53,11 +55,16 @@ def setup():
   #  for obt.find.py
   ##############################################
 
-  obt.env.append("OBT_SEARCH_EXTLIST", ".bb:.conf")
+  obt.env.append("OBT_SEARCH_EXTLIST", ".bb:.bbappend:.bbclass:.conf")
+  obt.env.append("OBT_SEARCH_EXTLIST", ".sh:.patch:.ini:.md")
 
   ##############################################
 
   print(deco.yellow("Initialized Spx Build Enviroment"))
 
 def extend_bashrc():
-  return ["spx.goto.root() { cd ${SPX_WORKSPACE_DIR}; };\n"];
+  return [
+    "spx.goto.root() { cd ${SPX_WORKSPACE_DIR}; };\n",
+    "spx.goto.fsrootstage() { cd ${SPX_FSROOTSTAGE_DIR}; };\n",
+    "spx.goto.kernelsrc() { cd ${SPX_KERNELSRC_DIR}; };\n"
+    ];

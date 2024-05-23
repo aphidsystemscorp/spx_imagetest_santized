@@ -13,3 +13,9 @@
 [submodule "submodules/meta-browser"]
 	path = submodules/meta-browser
 	url = https://github.com/OSSystems/meta-browser.git
+[submodule "submodules/cef-project"]
+	path = submodules/cef-project
+	url = https://github.com/chromiumembedded/cef-project
+[submodule "submodules/cef"]
+	path = submodules/cef
+	url = https://github.com/chromiumembedded/cef
