@@ -7,7 +7,7 @@ from spx import path as spx_path
 libgbm_src = spx_path.root/"submodules"/"libgbm2"
 libgbm_dst = obt_path.builds()/"aarch64-libgbm"
 libgbm_bld = libgbm_dst/".build"
-sysroot = obt_path.Path("/opt/r8toolchain/sysroots/aarch64-poky-linux")
+sysroot = obt_path.stage()/"r8toolchain"/"sysroots"/"aarch64-poky-linux"
 instdir = spx_path.root/"tmp"/"deploy"/"overlays"
 
 pathtools.rmdir(libgbm_dst,force=True)

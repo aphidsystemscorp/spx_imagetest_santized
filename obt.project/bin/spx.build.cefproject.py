@@ -7,7 +7,7 @@ from spx import path as spx_path
 project_src = spx_path.root/"submodules"/"cef-project"
 project_dst = obt_path.builds()/"aarch64-cef-project"
 project_bld = project_dst/".build"
-sysroot = obt_path.Path("/opt/r8toolchain/sysroots/aarch64-poky-linux")
+sysroot = obt_path.stage()/"r8toolchain"/"sysroots"/"aarch64-poky-linux"
 
 project_dest = spx_path.root/"tmp"/"deploy"/"overlays"/"opt"
 
