@@ -24,15 +24,22 @@ def setup():
   project_dir = scripts_dir/".."
   spxbin_dir = project_dir/"bin"
   spxdir = obt.path.Path(os.path.normpath(project_dir/".."))
+  tmpdir = spxdir/"tmp"
+  workdir = tmpdir/"work"
+  workshdir = spxdir/"work-shared"
   assert(spxbin_dir.exists())
 
+  crossgccdir = obt.path.Path("/home/yoctodev/build/tmp/work")/"x86_64-linux"/"gcc-cross-aarch64"/"9.3.0-r0"/"sysroot-destdir"/"home"/"yoctodev"/"build"/"tmp"/"work"/"x86_64-linux"/"gcc-cross-aarch64"/"9.3.0-r0"/"recipe-sysroot-native"/"usr"/"bin"/"aarch64-poky-linux"
+  
   ##############################################
   # mark ORKID as project
   ##############################################
 
   obt.env.set("SPX_WORKSPACE_DIR",spxdir)
-  obt.env.set("SPX_KERNELSRC_DIR",spxdir/"tmp"/"work-shared"/"whitehawk"/"kernel-source")
-  obt.env.set("SPX_FSROOTSTAGE_DIR",spxdir/"tmp"/"work"/"whitehawk-poky-linux"/"rcar-image-adas-dev"/"1.0-r0"/"rootfs")
+  obt.env.set("SPX_KERNELSRC_DIR",workshdir/"whitehawk"/"kernel-source")
+  obt.env.set("SPX_FSROOTSTAGE_DIR",workdir/"whitehawk-poky-linux"/"rcar-image-adas-dev"/"1.0-r0"/"rootfs")
+  obt.env.set("SPX_TGT_CXX", crossgccdir/"aarch64-poky-linux-g++")
+  obt.env.set("SPX_TGT_CC", crossgccdir/"aarch64-poky-linux-gcc")
 
   ##############################################
   # add orkid scripts to enviromment PATH

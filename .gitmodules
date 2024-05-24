@@ -19,3 +19,15 @@
 [submodule "submodules/cef"]
 	path = submodules/cef
 	url = https://github.com/chromiumembedded/cef
+[submodule "submodules/libgbm"]
+	path = submodules/libgbm
+	url = https://github.com/renesas-rcar/libgbm
+[submodule "submodules/wayland-kms"]
+	path = submodules/wayland-kms
+	url = https://github.com/renesas-rcar/wayland-kms
+[submodule "submodules/libgbm2"]
+	path = submodules/libgbm2
+	url = https://github.com/thayama/libgbm
+[submodule "submodules/libcups"]
+	path = submodules/libcups
+	url = https://github.com/OpenPrinting/libcups.git

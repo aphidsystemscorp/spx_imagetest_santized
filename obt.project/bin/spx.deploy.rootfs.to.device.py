@@ -20,7 +20,6 @@ rogue = submodules/"rogue"
 
 deploy_src = spx_path.root/"tmp"/"deploy"/"images"/"whitehawk"
 
-dest_tftp = path.Path("/srv/tftp")
 dest_nfs = path.Path("/export/")
 
 #######################################################
@@ -42,13 +41,6 @@ def copy(src,dest):
 def copy_recursive(src,dest):
   command.run(["sudo","cp","-r",src,dest],do_log=True)
 
-####################
-# kernel and dtb
-####################
-
-copy(deploy_src/"Image",dest_tftp/"Image")
-copy(deploy_src/"r8a779g0-whitehawk.dtb",dest_tftp/"r8a779g0-whitehawk.dtb")
-
 #######################################################
 # build root staging area
 #######################################################
@@ -66,6 +58,7 @@ os.chdir(dest_nfs)
 
 command.run(["sudo","mkdir", dest_dir/"opt"],do_log=True)
 command.run(["sudo","cp", "-r", spx_path.root/"testprogs", dest_dir/"opt"/"testprogs"],do_log=True)
+command.run(["sudo","cp", "-r", spx_path.root/"tmp"/"deploy"/"overlays", dest_dir],do_log=True)
 
 #######################################################
 # copy to nfs export
