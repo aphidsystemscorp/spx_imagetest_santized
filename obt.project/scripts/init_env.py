@@ -26,7 +26,7 @@ def setup():
   spxdir = obt.path.Path(os.path.normpath(project_dir/".."))
   tmpdir = spxdir/"tmp"
   workdir = tmpdir/"work"
-  workshdir = spxdir/"work-shared"
+  workshdir = tmpdir/"work-shared"
   assert(spxbin_dir.exists())
 
   crossgccdir = obt.path.Path("/home/yoctodev/build/tmp/work")/"x86_64-linux"/"gcc-cross-aarch64"/"9.3.0-r0"/"sysroot-destdir"/"home"/"yoctodev"/"build"/"tmp"/"work"/"x86_64-linux"/"gcc-cross-aarch64"/"9.3.0-r0"/"recipe-sysroot-native"/"usr"/"bin"/"aarch64-poky-linux"
