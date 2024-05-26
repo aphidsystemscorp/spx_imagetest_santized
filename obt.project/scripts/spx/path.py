@@ -15,4 +15,6 @@ def __getattr__(name):
   	return _root()/"obt.project"/"modules"
   elif name == "r8sdk":
   	return obt_path.stage()/"r8toolchain"
+  elif name == "kernel_source":
+  	return obt_path.Path(os.environ["SPX_KERNELSRC_DIR"])
   return None

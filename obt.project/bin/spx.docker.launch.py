@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 #
 
-import os, sys
+import os, sys, argparse
 from obt import path, command
 from obt import path as obt_path
 from spx import path as spx_path
+
+parser = argparse.ArgumentParser(description='Launch a docker container for Yocto build')
+parser.add_argument('-c', "--command", type=str, default="bash", help='command to run in the container')
+args = parser.parse_args()
 
 submodules = spx_path.root/"submodules"
 bitbakes = spx_path.root/"bitbakes"
@@ -60,8 +64,7 @@ d_cmd += vmapstr(spx_path.root/"testprogs",B/"testprogs")
 # vmapstr(spx_path.root/"rogue_ddk.bb",H/"meta-custom/recipes-custom/rogue-ddk/rogue_ddk.bb"),
 ####################################################
 
-d_cmd += ["yocto-build"]
-
+d_cmd += ["yocto-build", "bash", "-c", "source ~/poky/oe-init-build-env build && %s" % args.command]
 
 
 command.run(d_cmd, working_dir=spx_path.root,do_log=True)

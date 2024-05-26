@@ -84,4 +84,5 @@ ENV CMAKE_TOOLCHAIN_FILE=/home/yoctodev/build/testprogs/r8toolchain.cmake
 ENV SDK_DIR=/opt/r8toolchain
 ENV SDK_SYSROOT=/opt/r8toolchain/sysroots/aarch64-poky-linux
 
-CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env build && bash"]
+#CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env build && bash"]
+CMD ["bash", "--"]
