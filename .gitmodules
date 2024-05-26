@@ -31,3 +31,18 @@
 [submodule "submodules/libcups"]
 	path = submodules/libcups
 	url = https://github.com/OpenPrinting/libcups.git
+[submodule "submodules/meta-clang"]
+	path = submodules/meta-clang
+	url = https://github.com/kraj/meta-clang.git
+[submodule "submodules/wlroots"]
+	path = submodules/wlroots
+	url = https://github.com/swaywm/wlroots.git
+[submodule "submodules/swc"]
+	path = submodules/swc
+	url = https://github.com/michaelforney/swc.git
+[submodule "submodules/wld"]
+	path = submodules/wld
+	url = https://github.com/michaelforney/wld.git
+[submodule "submodules/como"]
+	path = submodules/como
+	url = https://github.com/winft/como.git

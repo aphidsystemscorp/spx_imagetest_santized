@@ -53,22 +53,22 @@ ENV LC_ALL en_US.UTF-8
 
 
 # Clone the specific meta BSP layer
-COPY --chown=yoctodev submodules/meta-openembedded $HOME/meta-openembedded
-COPY --chown=yoctodev submodules/meta-renesas $HOME/meta-renesas
-COPY --chown=yoctodev submodules/meta-browser $HOME/meta-browser
-COPY --chown=yoctodev submodules/wayland-kms $HOME/wayland-kms
-COPY --chown=yoctodev submodules/libgbm $HOME/libgbm
-COPY --chown=yoctodev submodules/poky $HOME/poky
-COPY --chown=yoctodev toolchain/poky-glibc-x86_64-rcar-image-adas-dev-aarch64-v4h-toolchain-3.1.11.sh $HOME/r8toolchain-installer.sh
-COPY --chown=yoctodev $SGFX $HOME/rcar-gfx
+#COPY --chown=yoctodev submodules/meta-openembedded $HOME/meta-openembedded
+#COPY --chown=yoctodev submodules/meta-renesas $HOME/meta-renesas
+#COPY --chown=yoctodev submodules/meta-browser $HOME/meta-browser
+#COPY --chown=yoctodev submodules/wayland-kms $HOME/wayland-kms
+#COPY --chown=yoctodev submodules/libgbm $HOME/libgbm
+#COPY --chown=yoctodev submodules/poky $HOME/poky
+#COPY --chown=yoctodev toolchain/poky-glibc-x86_64-rcar-image-adas-dev-aarch64-v4h-toolchain-3.1.11.sh $HOME/r8toolchain-installer.sh
+#COPY --chown=yoctodev $SGFX $HOME/rcar-gfx
 
-COPY --chown=yoctodev $SGFX/gfxdrv/GSX_KM_V4H.tar.bz2 $DADAS/recipes-kernel/kernel-module-gles/kernel-module-gles/
-COPY --chown=yoctodev $SGFX/opengl/r8a779g0_linux_gsx_binaries_gles.tar.bz2 $DADAS/recipes-graphics/gles-user-module/gles-user-module/
+#COPY --chown=yoctodev $SGFX/gfxdrv/GSX_KM_V4H.tar.bz2 $DADAS/recipes-kernel/kernel-module-gles/kernel-module-gles/
+#COPY --chown=yoctodev $SGFX/opengl/r8a779g0_linux_gsx_binaries_gles.tar.bz2 $DADAS/recipes-graphics/gles-user-module/gles-user-module/
 
-RUN /home/yoctodev/r8toolchain-installer.sh -y -d /opt/r8toolchain
+#RUN /home/yoctodev/r8toolchain-installer.sh -y -d /opt/r8toolchain
 
 #RUN chmod 755 $HOME/meta-openembedded
-WORKDIR $HOME/rcar-gfx/gfxdrv
+#WORKDIR $HOME/rcar-gfx/gfxdrv
 #RUN tar xvf GSX_KM_V4H.tar.bz2
 
 WORKDIR $HOME
@@ -84,4 +84,4 @@ ENV CMAKE_TOOLCHAIN_FILE=/home/yoctodev/build/testprogs/r8toolchain.cmake
 ENV SDK_DIR=/opt/r8toolchain
 ENV SDK_SYSROOT=/opt/r8toolchain/sysroots/aarch64-poky-linux
 
-CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env build && source /opt/r8toolchain/environment-setup-aarch64-poky-linux && bash"]
+CMD ["/bin/bash","-c","source ~/poky/oe-init-build-env build && bash"]

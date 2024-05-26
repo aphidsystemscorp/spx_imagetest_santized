@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-bitbake rcar-image-adas-dev -c populate_sdk
+bitbake rcar-image-adas -c populate_sdk
 
 home="/home/yoctodev"
 builddir="${home}/build"

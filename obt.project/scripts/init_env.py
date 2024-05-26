@@ -40,6 +40,9 @@ def setup():
   obt.env.set("SPX_FSROOTSTAGE_DIR",workdir/"whitehawk-poky-linux"/"rcar-image-adas-dev"/"1.0-r0"/"rootfs")
   obt.env.set("SPX_TGT_CXX", crossgccdir/"aarch64-poky-linux-g++")
   obt.env.set("SPX_TGT_CC", crossgccdir/"aarch64-poky-linux-gcc")
+  obt.env.set("SPX_SYSROOT_COMPONENTS", tmpdir/"sysroots-components"/"aarch64")
+  obt.env.set("R8_SDK_ROOT", obt.path.stage()/"r8toolchain")
+  obt.env.set("R8_SDK_ARM_SYSROOT", obt.path.stage()/"r8toolchain"/"sysroots"/"aarch64-poky-linux")
 
   ##############################################
   # add orkid scripts to enviromment PATH
@@ -73,5 +76,7 @@ def extend_bashrc():
   return [
     "spx.goto.root() { cd ${SPX_WORKSPACE_DIR}; };\n",
     "spx.goto.fsrootstage() { cd ${SPX_FSROOTSTAGE_DIR}; };\n",
-    "spx.goto.kernelsrc() { cd ${SPX_KERNELSRC_DIR}; };\n"
+    "spx.goto.kernelsrc() { cd ${SPX_KERNELSRC_DIR}; };\n",
+    "spx.goto.r8sdk_root() { cd ${R8_SDK_ROOT}; };\n",
+    "spx.goto.r8sdk_arm_sysroot() { cd ${R8_SDK_ARM_SYSROOT}; };\n"
     ];
