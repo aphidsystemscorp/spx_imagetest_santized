@@ -1,5 +1,6 @@
 #include "test-egl.h"
 
+/*
 ///////////////////////////////////////////////////////////////////////////////
 
 Display::Display() {
@@ -165,3 +166,4 @@ const struct wl_keyboard_listener Display::keyboard_listener = {
        uint32_t group) {
       // Handle modifiers event if necessary
     }};
+*/

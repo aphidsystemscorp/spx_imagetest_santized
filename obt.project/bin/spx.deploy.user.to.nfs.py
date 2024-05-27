@@ -37,10 +37,10 @@ def copy_pattern( destdir, base, pattern ):
   for item in l:
     named = os.path.basename(item)
     # subpath should be relative to base
-    subpath = os.path.relpath(item, base)
+    subpath = os.path.relpath(item, str(base))
     subdir = os.path.dirname(subpath)
-    os.system("sudo mkdir -p %s/%s"%(destdir,subdir))
-    dest = path.Path(destdir)/subpath
+    os.system("sudo mkdir -p %s/%s"%(str(destdir),subdir))
+    dest = path.Path(str(destdir))/subpath
     #print(dest)
     #print(named, item, dest)
     #print( "copying", named, "to", dest)
@@ -58,8 +58,9 @@ copy_pattern(dst_usr_lib, src_usr_lib, "libEGL*")
 #copy_pattern(dst_usr_lib, src_usr_lib, "lib*")
 
 src_opt = sysroot/"opt"
-dst_opt = "/export/rfs/opt"
+dst_opt = path.Path("/export/rfs/opt")
 
-copy_pattern(dst_opt, src_opt, "*")
+copy_pattern(dst_opt/"bin", src_opt/"bin", "*")
+copy_pattern(dst_opt/"testprogs", src_opt/"testprogs", "*")
 
 ####################

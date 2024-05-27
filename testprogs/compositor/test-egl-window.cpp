@@ -1,5 +1,6 @@
 #include "test-egl.h"
 
+/*
 ///////////////////////////////////////////////////////////////////////////////
 
 Window::Window(Display *display, int width, int height, bool fullscreen,
@@ -317,3 +318,4 @@ const struct wl_callback_listener Window::frame_listener = {
       static_cast<Window *>(data)->redraw(time);
     }};
 
+*/

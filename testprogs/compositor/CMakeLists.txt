@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(compositor)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 find_package(PkgConfig REQUIRED)
 
@@ -54,9 +54,20 @@ target_link_libraries(simple-egl
 install(TARGETS simple-egl DESTINATION  bin)
 
 add_executable(test-egl 
-               ${PROJECT_SOURCE_DIR}/test-egl.cpp 
-               ${PROJECT_SOURCE_DIR}/test-egl-display.cpp 
-               ${PROJECT_SOURCE_DIR}/test-egl-window.cpp)
+  ${PROJECT_SOURCE_DIR}/test-egl.cpp 
+  ${PROJECT_SOURCE_DIR}/test-egl-display.cpp 
+  ${PROJECT_SOURCE_DIR}/test-egl-window.cpp)
+
+target_include_directories(test-egl PRIVATE
+  ${WAYLAND_CLIENT_INCLUDE_DIRS}
+  ${WAYLAND_EGL_INCLUDE_DIRS}
+  ${WAYLAND_CURSOR_INCLUDE_DIRS}
+  ${EGL_INCLUDE_DIRS}
+  ${OPENGL_ES2_INCLUDE_DIRS}
+  ${CMAKE_SYSROOT}/usr/include
+  ${CMAKE_SYSROOT}/usr/include/gbm
+  ${CMAKE_SYSROOT}/usr/include/drm
+)
 
 target_link_libraries(test-egl     
   ${WAYLAND_CLIENT_LIBRARIES}
@@ -64,6 +75,9 @@ target_link_libraries(test-egl
   ${WAYLAND_CURSOR_LIBRARIES}
   ${EGL_LIBRARIES}
   ${OPENGL_ES2_LIBRARIES}
+  ${CMAKE_SYSROOT}/usr/lib/libdrm.so
+  ${CMAKE_SYSROOT}/usr/lib/libgbm.so
+  dl
 )
 
 install(TARGETS test-egl DESTINATION  bin)

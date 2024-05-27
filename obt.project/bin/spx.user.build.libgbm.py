@@ -39,10 +39,10 @@ r8sdk.run([
               "--build=x86_64-linux-gnu",
               "--host=aarch64-poky-linux",
               "--target=aarch64-poky-linux",
-              "--with-sysroot=%s"%sysroot,
+#              "--with-sysroot=%s"%sysroot,
               "--prefix=%s"%sysroot,
               "--includedir=%s/usr/include"%sysroot, 
-              "--libdir=%s/usr/lib"%sysroot
+              #"--libdir=%s/usr/lib"%sysroot
               ], 
             working_dir=libgbm_bld, 
             environment=conf_vars, 
@@ -50,3 +50,11 @@ r8sdk.run([
 
 command.run(["make",'-j',host.NumCores], working_dir=libgbm_bld, do_log=True)
 command.run(["make",'install'], working_dir=libgbm_bld, do_log=True)
+
+r8sdk = spx_path.r8sdk
+src_sysroot = r8sdk/"sysroots"/"aarch64-poky-linux"
+dst_sysroot = spx_path._root()/"tmp"/"deploy"/"merged_sysroot"
+
+cmd = "cp -r %s/opt/* %s/opt/" % (src_sysroot, dst_sysroot)
+print(cmd)
+os.system(cmd)
