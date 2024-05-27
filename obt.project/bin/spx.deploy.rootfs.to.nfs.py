@@ -9,6 +9,7 @@ from spx import path as spx_path
 def latest_of(base,pattern):
   x = pathtools.patglob(str(base), pattern)
   x = sorted(x, key=os.path.getmtime, reverse=True)
+  print(base,pattern,x)
   return x[0]
 
 #######################################################
@@ -16,10 +17,9 @@ def latest_of(base,pattern):
 user = os.environ["USER"]
 home = path.Path(os.environ["HOME"])
 submodules = spx_path.root/"submodules"
-rogue = submodules/"rogue"
 
 deploy_src = spx_path.root/"tmp"/"deploy"/"images"/"whitehawk"
-
+sysroot = spx_path.root
 dest_nfs = path.Path("/export/")
 
 #######################################################
@@ -27,7 +27,8 @@ dest_nfs = path.Path("/export/")
 #######################################################
 
 latest_tarball = None
-latest = latest_of(deploy_src, "rcar-image-adas-dev-v4h-*.rootfs.tar.bz2")
+#latest = latest_of(deploy_src, "rcar-image-adas-dev-v4h-*.rootfs.tar.bz2")
+latest = latest_of(deploy_src, "rcar-image-adas-v4h-*.rootfs.tar.bz2")
 latest_stripped = os.path.basename(latest).replace(".tar.bz2","")
 print(latest)
 print(latest_stripped)
@@ -51,6 +52,7 @@ command.run(["sudo","mkdir",dest_dir],do_log=True)
 os.chdir(dest_dir)
 command.run(["sudo","tar","-xvf",latest],do_log=True)
 os.chdir(dest_nfs)
+#command.run(["sudo","cp","-r",sysroot,"."],do_log=True)
 
 #######################################################
 # tweak root filesystem
@@ -66,9 +68,6 @@ command.run(["sudo","cp", "-r", spx_path.root/"tmp"/"deploy"/"overlays", dest_di
 
 command.run(["sudo","rm","-rf", "rfs"])
 command.run(["sudo","cp","-r",latest_stripped,"rfs"])
-X = " ".join(["sudo","cp","-r","%s/*"%str(rogue),str(dest_nfs/"rfs")+"/"])
-print(X)
-os.system(X)
 command.run(["sudo","chown","-R","%s:%s"%(user,user),dest_nfs/"rfs"],do_log=True)
 command.run(["rm","-f",home/".ssh"/"known_hosts"],do_log=True)
 

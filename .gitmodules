@@ -46,3 +46,6 @@
 [submodule "submodules/como"]
 	path = submodules/como
 	url = https://github.com/winft/como.git
+[submodule "submodules/wayland"]
+	path = submodules/wayland
+	url = https://gitlab.freedesktop.org/wayland/wayland.git
