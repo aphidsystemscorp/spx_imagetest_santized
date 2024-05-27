@@ -21,7 +21,7 @@ def run( cmdlist, working_dir=None, environment=None, do_log=True):
   
   for item in merged_env.items():
     print(item)
-  command.run( cmdlist, 
+  return command.run( cmdlist, 
                working_dir=working_dir, 
                environment=merged_env, 
                do_log=do_log )

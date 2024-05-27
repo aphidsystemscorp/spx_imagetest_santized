@@ -25,14 +25,29 @@ conf_vars = {
   "CMAKE_TOOLCHAIN_FILE": "%s/testprogs/r8toolchain.cmake"%spx_path.root, 
 }
 
-r8sdk.run([
+r = r8sdk.run([
              "/home/michael/.staging-spx-may25/r8toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/cmake",
              "-DCMAKE_INSTALL_PREFIX=%s"%str(sysroot_dest/"opt"),
+             "-DCMAKE_SYSROOT=%s"%"/",
              spx_path.root/"testprogs"/"compositor",
              ],
             working_dir=comp_bld, 
             environment=conf_vars, 
             do_log=True)
 
-r8sdk.run(["make",'-j',host.NumCores], working_dir=comp_bld, do_log=True)
-r8sdk.run(["make",'install'], working_dir=comp_bld, do_log=True)
+if r != 0:
+  print("CMake failed")
+  exit(1)
+
+r = r8sdk.run(["make",'-j',host.NumCores], environment={"VERBOSE":"1"},working_dir=comp_bld, do_log=True)
+
+if r != 0:
+  r = r8sdk.run(["make",'-j',1], environment={"VERBOSE":"1"},working_dir=comp_bld, do_log=True)
+  print("make failed")
+  exit(1)
+
+r = r8sdk.run(["make",'install'], working_dir=comp_bld, do_log=True)
+
+if r != 0:
+  print("install failed")
+  exit(1)

@@ -1,4 +1,4 @@
-#include "simple-egl.h"
+#include "test-egl.h"
 
 void log_error(const std::string& message) {
     std::cerr << "Error: " << message << std::endl;

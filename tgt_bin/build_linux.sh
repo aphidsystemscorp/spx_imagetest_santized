@@ -2,7 +2,7 @@
 
 #chmod u+w /home/yoctodev/build/tmp/work/aarch64-poky-linux/gtk+3/3.24.14-r0/gtk+-3.24.14/config.rpath
 
-bitbake rcar-image-adas
+bitbake rcar-image-adas-dev
 
 home="/home/yoctodev"
 builddir="${home}/build"
