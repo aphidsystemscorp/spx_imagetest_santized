@@ -14,6 +14,7 @@
 13. ```spx.docker.build.py``` - build yocto docker image
 14. ```spx.kernel.build.py``` - build the r8 kernel
 15. fix build error - replace
+
    ./tmp/work/x86_64-linux/gdbm-native/1.18.1-r0/gdbm-1.18.1/src/version.c : line 29 
 ```
 " (built " __DATE__ " " __TIME__ ")"
