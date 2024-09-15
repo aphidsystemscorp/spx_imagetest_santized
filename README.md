@@ -15,6 +15,7 @@
 14. ```spx.kernel.build.py``` - build the r8 kernel
 15. fix build error(s)
    - see https://lists.yoctoproject.org/g/yocto/topic/date_and_time_in/86967072 for context
+   - see https://community.renesas.com/automotive/gateway/f/forum/32314/error-when-building-sdk-v3-16-1-for-s4sk
    - replace
    ./tmp/work/x86_64-linux/gdbm-native/1.18.1-r0/gdbm-1.18.1/src/version.c : line 29 
 ```
