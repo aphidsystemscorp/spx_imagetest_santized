@@ -20,7 +20,7 @@
 ```
 with
 ```
-" (built " DATE " " TIME ")"```
+""
 ```
 and perhaps:
 ```
