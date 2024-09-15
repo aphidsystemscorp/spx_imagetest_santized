@@ -8,7 +8,7 @@
 7. ```source .venv/bin/activate``` - activate virtual env 
 8. ```pip3 install ork.build==0.0.214``` install ork.build into virtual env
 9. ```obt.env.create.py --staging .staging --project .``` - create obt staging environment : see https://github.com/tweakoz/ork.build
-10. launch the environment ```~/.staging-spx/obt-env-launch```
+10. launch the environment ```~/.staging/obt-env-launch```
 11. ```spx.outputfolders.prep.py``` - create output folders
 12. ```sudo chown -R user:user tmp``` - fix permissions
 13. ```spx.docker.build.py``` - build yocto docker image
