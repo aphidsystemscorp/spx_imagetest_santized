@@ -23,7 +23,10 @@ with
 ```
 ""
 ```
+
 and perhaps:
+./tmp/work/x86_64-linux/unzip-native/1_6.0-r5/unzip60/unix/unix.c : line 1712
+
 ```
 #ifdef __DATE__
       " on ", __DATE__
@@ -36,8 +39,6 @@ with
 ```
 "", ""
 ``` 
-on line 1712 of: 
-```./tmp/work/x86_64-linux/unzip-native/1_6.0-r5/unzip60/unix/unix.c```
 
 16. ```spx.kernel.build.py``` - again, because we fixed the build error
 17. ```spx.sdk.build.py``` - to build the r8 sdk
