@@ -13,8 +13,7 @@
 12. ```sudo chown -R user:user tmp``` - fix permissions
 13. ```spx.docker.build.py``` - build yocto docker image
 14. ```spx.kernel.build.py``` - build the r8 kernel
-15. ```spx.sdk.build.py``` - to build the r8 sdk
-16. fix build error - replace 
+15. fix build error - replace 
 ```
 #ifdef __DATE__
       " on ", __DATE__
@@ -30,7 +29,8 @@ with
 on line 1712 of: 
 ```./tmp/work/x86_64-linux/unzip-native/1_6.0-r5/unzip60/unix/unix.c```
 
-17. ```spx.sdk.build.py``` - again, because we fixed the build error
+16. ```spx.kernel.build.py``` - again, because we fixed the build error
+17. ```spx.sdk.build.py``` - to build the r8 sdk
 18. ```spx.sdk.install.py``` - install the r8 sdk we just built
 19. ```spx.r8sdk.sh.py``` - enter r8 sdk subshell 
 20. ```spx.user.build.waylandkms.py``` - build wayland kms
