@@ -6,8 +6,8 @@ from spx import path as spx_path
 
 cmd_list = [
   "sh", 
-  #spx_path.root/"tmp"/"deploy"/"sdk"/"poky-glibc-x86_64-rcar-image-adas-dev-aarch64-v4h-toolchain-3.1.11.sh",
-  spx_path.root/"tmp"/"deploy"/"sdk"/"poky-glibc-x86_64-rcar-image-adas-aarch64-v4h-toolchain-3.1.11.sh",
+  spx_path.root/"tmp"/"deploy"/"sdk"/"poky-glibc-x86_64-rcar-image-adas-dev-aarch64-v4h-toolchain-3.1.11.sh",
+  #spx_path.root/"tmp"/"deploy"/"sdk"/"poky-glibc-x86_64-rcar-image-adas-aarch64-v4h-toolchain-3.1.11.sh",
   "-y",
   "-d",
   obt_path.stage()/"r8toolchain",

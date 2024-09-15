@@ -56,5 +56,5 @@ src_sysroot = r8sdk/"sysroots"/"aarch64-poky-linux"
 dst_sysroot = spx_path._root()/"tmp"/"deploy"/"merged_sysroot"
 
 cmd = "cp -r %s/opt/* %s/opt/" % (src_sysroot, dst_sysroot)
-print(cmd)
-os.system(cmd)
+#print(cmd)
+#os.system(cmd)
