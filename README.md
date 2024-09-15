@@ -8,4 +8,6 @@
 8. spx.outputfolders.prep.py
 9. sudo chown -R user:user tmp
 10. spx.docker.build.py
+11. spx.kernel.build.py
+12. 
     
