@@ -10,7 +10,7 @@
 9. ```obt.env.create.py --staging .staging --project .``` - create obt staging environment : see https://github.com/tweakoz/ork.build
 10. launch the environment ```~/.staging/obt-launch-env```
 11. ```spx.outputfolders.prep.py``` - create output folders
-12. ```sudo chown -R user:user tmp``` - fix permissions
+12. ```sudo chown -R $USER:$USER tmp``` - fix permissions
 13. ```spx.docker.build.py``` - build yocto docker image
 14. ```spx.kernel.build.py``` - build the r8 kernel
 15. fix build error(s)
