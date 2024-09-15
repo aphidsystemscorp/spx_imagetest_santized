@@ -13,7 +13,7 @@
 12. ```sudo chown -R $USER:$USER tmp``` - fix permissions
 13. ```spx.docker.build.py``` - build yocto docker image
 14. ```spx.kernel.build.py``` - build the r8 kernel
-15. build error may occur - the yocto build is not deterministically stable.
+15. build error may occur - the yocto build is not deterministically stable - there may be an incomplete build DAG in yocto.
    - see https://lists.yoctoproject.org/g/yocto/topic/date_and_time_in/86967072 for context
    - see https://community.renesas.com/automotive/gateway/f/forum/32314/error-when-building-sdk-v3-16-1-for-s4sk
 
