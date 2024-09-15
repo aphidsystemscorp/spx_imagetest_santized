@@ -24,6 +24,11 @@ with
 ""
 ```
 
+./tmp/work/x86_64-linux/lzop-native/1.04-r0/lzop-1.04/src/help.c
+"\n$" "Id: lzop " LZOP_VERSION_STRING " built " LZOP_BUILD_DATE_TIME " $\n";
+->
+"\nId: lzop built \n";
+
 and perhaps:
 ./tmp/work/x86_64-linux/unzip-native/1_6.0-r5/unzip60/unix/unix.c : line 1712
 
