@@ -1,16 +1,17 @@
 1. clone 
 2. ```git submodule init``` # clone submodule dependencies
 3. ```git submodule update``` # update submodule dependencies
-4. create obt staging environment : see https://github.com/tweakoz/ork.build
+4. create virtual env : see https://github.com/tweakoz/ork.build
+5. ```pip3 install ork.build==0.0.214``` install ork.build into virtual env
+6. create obt staging environment : see https://github.com/tweakoz/ork.build
     ensure this is a subproject of the enviroment using --project <path to spx_imagetest_sanitized>
-6. launch the enviroment ```~/.staging-spx/obt-env-launch```
-7. ```spx.goto.root``` - change dir to this repo's working copy
-8. ```spx.outputfolders.prep.py``` - create output folders
-9. ```sudo chown -R user:user tmp``` - fix permissions
-10. ```spx.docker.build.py``` - build yocto docker image
-11. ```spx.kernel.build.py``` - build the r8 kernel
-12. ```spx.sdk.build.py``` - to build the r8 sdk
-13. fix build error - replace 
+7. launch the environment ```~/.staging-spx/obt-env-launch```
+9. ```spx.outputfolders.prep.py``` - create output folders
+10. ```sudo chown -R user:user tmp``` - fix permissions
+11. ```spx.docker.build.py``` - build yocto docker image
+12. ```spx.kernel.build.py``` - build the r8 kernel
+13. ```spx.sdk.build.py``` - to build the r8 sdk
+14. fix build error - replace 
 ```
 #ifdef __DATE__
       " on ", __DATE__
