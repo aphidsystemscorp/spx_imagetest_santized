@@ -36,7 +36,7 @@
 	url = https://github.com/kraj/meta-clang.git
 [submodule "submodules/wlroots"]
 	path = submodules/wlroots
-	url = https://github.com/swaywm/wlroots.git
+	url = git@github.com:build_dircorp/wlroots.git
 [submodule "submodules/swc"]
 	path = submodules/swc
 	url = https://github.com/michaelforney/swc.git
