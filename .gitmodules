@@ -9,7 +9,7 @@
 	url = https://github.com/renesas-rcar/rcar-gfx.git
 [submodule "submodules/meta-renesas"]
 	path = submodules/meta-renesas
-	url = https://github.com/renesas-rcar/meta-renesas
+	url = git@github.com:build_dircorp/meta-renesas.git
 [submodule "submodules/meta-browser"]
 	path = submodules/meta-browser
 	url = https://github.com/OSSystems/meta-browser.git
