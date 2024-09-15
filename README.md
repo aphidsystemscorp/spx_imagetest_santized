@@ -13,7 +13,16 @@
 12. ```sudo chown -R user:user tmp``` - fix permissions
 13. ```spx.docker.build.py``` - build yocto docker image
 14. ```spx.kernel.build.py``` - build the r8 kernel
-15. fix build error - replace 
+15. fix build error - replace
+
+```
+" (built " __DATE__ " " __TIME__ ")"
+```
+with
+```
+" (built " DATE " " TIME ")"```
+```
+and perhaps:
 ```
 #ifdef __DATE__
       " on ", __DATE__
