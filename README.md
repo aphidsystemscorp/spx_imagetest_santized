@@ -9,5 +9,6 @@
 9. sudo chown -R user:user tmp
 10. spx.docker.build.py
 11. spx.kernel.build.py
-12. 
+12. spx.sdk.build.py
+13. spx.sdk.install.py
     
