@@ -11,4 +11,11 @@
 11. spx.kernel.build.py
 12. spx.sdk.build.py
 13. spx.sdk.install.py
+14. fix build error - replace ```#ifdef __DATE__
+      " on ", __DATE__
+#else
+      "", ""
+#endif
+    );``` with ```"", ""``` on ```./tmp/work/x86_64-linux/unzip-native/1_6.0-r5/unzip60/unix/unix.c```
+15. spx.sdk.install.py
     
