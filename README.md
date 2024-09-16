@@ -48,6 +48,13 @@ Image Builder for Renesas R-Car V4H WhiteHawk
 
 18. ```spx.sdk.build.py``` - to build the r8 sdk, like the kernel build it is not deterministic, repeat until it succeeds...
 19. ```spx.sdk.install.py``` - install the r8 sdk we just built
-20. ```spx.r8sdk.sh.py``` - enter r8 sdk subshell 
-21. ```spx.user.build.waylandkms.py``` - build wayland kms
-22. ```spx.user.build.libgbm.py``` - build libgbm 
+20. ```spx.r8sdk.sh.py``` - enter r8 sdk subshell
+
+At this point you can try and configure yocto to build wayland for whitehawk, 
+ unfortunately due to issues in the yocto layers, I am unable to set a configuration 
+ that builds or runs successfully. 
+
+With this I attempted to build wayland myself.....
+   
+22. ```spx.user.build.waylandkms.py``` - build wayland kms
+23. ```spx.user.build.libgbm.py``` - build libgbm 
