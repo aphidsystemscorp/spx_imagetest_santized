@@ -93,9 +93,9 @@ With this I attempted to build wayland myself.....
 24. trying to find a version of wayland that built using the r8sdk proved difficult.
     wayland's build system requires a lot of specifics on the build host. I am not
     convinced cross compiling wayland for arm on x86 is commonly done. Also wayland
-    was and is a fast moving target, it's build system has evolved over time and
-    trying to build more modern versions of wayland sdk's against renesas's old
-    dunfell base sdkset was problematic.
+    across the last decade was and is a fast moving target, it's build system has
+    evolved over time and trying to build more modern versions of wayland sdk's against
+    renesas's old dunfell base sdkset was problematic.
 
     so trying If I were moving forward with this - I would use the kernel from the
     yocto build and replace the linux userspace with a more modern image.
