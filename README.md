@@ -94,4 +94,4 @@ With this I attempted to build wayland myself.....
     
 **Build Compositor**
 
-2x. ```spx.user.build.compositor.py``` - build compositor test
+2x. ```spx.user.build.compositor.py``` - build compositor test (in <repo>/testprogs/compositor)
