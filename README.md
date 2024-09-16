@@ -39,9 +39,13 @@
     );
 ``` 
 
-16. ```spx.kernel.build.py``` - repeatedly until build succeeds...
-17. ```spx.sdk.build.py``` - to build the r8 sdk
-18. ```spx.sdk.install.py``` - install the r8 sdk we just built
-19. ```spx.r8sdk.sh.py``` - enter r8 sdk subshell 
-20. ```spx.user.build.waylandkms.py``` - build wayland kms
-21.   
+16. ```spx.kernel.build.py``` - repeatedly until build succeeds,
+                              
+- sometimes for a given build this never happens
+- in this case ```git clean -fdx``` , ensure working folder is entirely clean, and try again (go back to step 11...
+
+18. ```spx.sdk.build.py``` - to build the r8 sdk
+19. ```spx.sdk.install.py``` - install the r8 sdk we just built
+20. ```spx.r8sdk.sh.py``` - enter r8 sdk subshell 
+21. ```spx.user.build.waylandkms.py``` - build wayland kms
+22.   
