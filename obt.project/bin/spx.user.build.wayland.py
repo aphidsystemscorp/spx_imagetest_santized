@@ -42,9 +42,9 @@ os.environ["OBT_SUBSPACE_PROMPT"] = "R8SDK"
 os.environ["SPX_WORKSPACE_DIR"] = backup["SPX_WORKSPACE_DIR"]
   
 my_env = dict()
-my_env["PATH"] = backup["OBT_BIN_PUB_DIR"] 
+my_env["PATH"] = backup["VIRTUAL_ENV"]+"/bin" 
 my_env["PATH"] += ":"
-my_env["PATH"] += backup["OBT_BIN_PRIV_DIR"]
+my_env["PATH"] += backup["VIRTUAL_ENV"]+"/obt/bin_priv"
 my_env["PATH"] += ":"
 my_env["PATH"] += backup["OBT_ORIGINAL_PATH"]
 my_env["PATH"] += ":"
