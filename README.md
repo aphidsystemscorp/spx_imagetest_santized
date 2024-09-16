@@ -48,4 +48,4 @@
 19. ```spx.sdk.install.py``` - install the r8 sdk we just built
 20. ```spx.r8sdk.sh.py``` - enter r8 sdk subshell 
 21. ```spx.user.build.waylandkms.py``` - build wayland kms
-22.   
+22. ```spx.user.build.libgbm.py``` - build libgbm 
