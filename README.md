@@ -86,7 +86,12 @@ With this I attempted to build wayland myself.....
 
 20. ```spx.r8sdk.sh.py``` - "push" r8 sdk subshell on shell stack (type exit to pop)
 
-**Build Wayland stack**
+**Build Wayland dependency stack**
 
 22. ```spx.user.build.waylandkms.py``` - build wayland kms
-23. ```spx.user.build.libgbm.py``` - build libgbm 
+23. ```spx.user.build.libgbm.py``` - build libgbm
+24. todo: rest of deps
+    
+**Build Compositor**
+
+2x. ```spx.user.build.compositor.py``` - build compositor test (in <repo>/testprogs/compositor)
