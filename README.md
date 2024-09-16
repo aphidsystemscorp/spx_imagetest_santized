@@ -42,7 +42,7 @@
 16. ```spx.kernel.build.py``` - repeatedly until build succeeds,
                               
 - sometimes for a given build this never happens
-- in this case ```git clean -fdx``` , ensure working folder is entirely clean, and try again (go back to step 11...
+- in this case ```git clean -fdx``` , ensure working folder is entirely clean, and try again (go back to step 11) ...
 
 18. ```spx.sdk.build.py``` - to build the r8 sdk
 19. ```spx.sdk.install.py``` - install the r8 sdk we just built
