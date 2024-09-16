@@ -103,7 +103,7 @@ With this I attempted to build wayland myself.....
     Jetson based recent ubuntu filesystem onto the renesas kernel. This experiment was not finished.
     After this was achieved I may have just used the wayland that was present on the ubuntu based
     filesystem (if it supported EGL), or built a custom wayland which would have been easier given
-    the more recent dependency and toolchain package versions.
+    the more recent dependency and toolchain/buildsystem package versions.
     
 **Build Compositor (WIP)**
 
