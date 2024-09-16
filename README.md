@@ -71,6 +71,7 @@ Image Builder for Renesas R-Car V4H WhiteHawk
 **Chromium/Wayland/Ozone**
 
 Now we would like to build chromium targeting wayland (using ozone platform layer)
+As Xorg is not available on dunfell.
 see: https://chromium.googlesource.com/chromium/src/+/HEAD/docs/ozone_overview.md
 Of course to do this, we will need wayland for whitehawk v4h.
 
@@ -90,12 +91,18 @@ With this I attempted to build wayland myself.....
 
 22. ```spx.user.build.waylandkms.py``` - build wayland kms
 23. ```spx.user.build.libgbm.py``` - build libgbm
-24. trying to find a version of wayland that built using the r8sdk proved difficult.
+24. trying to find a version of wayland that built using the dunfell r8sdk proved difficult.
     wayland's build system requires a lot of specifics on the build host. I am not
     convinced cross compiling wayland for arm on x86 is commonly done. Also wayland
     across the last decade was and is a fast moving target, it's build system has
     evolved over time and trying to build more modern versions of wayland sdk's against
     renesas's old dunfell base sdkset was problematic.
+
+    see: 
+
+    https://lists.freedesktop.org/archives/wayland-devel/2018-April/037978.html
+
+    https://lists.freedesktop.org/archives/wayland-devel/2021-December/042064.html
 
     so if I were moving forward with chromium on whitehawk - I would try to use the kernel
     from the yocto build (which was able to run OpenGLes/EGL demos from the PowerVR SDK, and replace
@@ -104,6 +111,13 @@ With this I attempted to build wayland myself.....
     After this was achieved I may have just used the wayland that was present on the ubuntu based
     filesystem (if it supported EGL), or built a custom wayland which would have been easier given
     the more recent dependency and toolchain/buildsystem package versions.
+
+    A potental alternate path for r8a779g0 (whitehawk) is to not use dunfell kernel at all but use a
+    mainline kernel - it seems r8a779g0 support was added some time ago and gentoo.
+    see: https://github.com/torvalds/linux/commits/v6.11/arch/arm64/boot/dts/renesas/r8a779g0-white-hawk.dts
+    
+    Note: even if using a recent linux distro and kernel - you will likely still need an EGL based graphics solution. 
+     Xorg does not seem to be well supported on the PowerVR rogue generation.
     
 **Build Compositor (WIP)**
 
