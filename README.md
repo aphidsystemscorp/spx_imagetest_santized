@@ -97,8 +97,8 @@ With this I attempted to build wayland myself.....
     evolved over time and trying to build more modern versions of wayland sdk's against
     renesas's old dunfell base sdkset was problematic.
 
-    so trying If I were moving forward with this - I would use the kernel from the
-    yocto build and replace the linux userspace with a more modern image.
+    so if I were moving forward with chromium on whitehawk - I would try to use the kernel
+    from the yocto build and replace the linux userspace with a more modern distro.
     I did attempt this by trying to graft a Nvidia Jetson based recent ubuntu filesystem
     onto the renesas kernel. This experiment was not finished. After this was achieved
     I may have just used the wayland that was present on the ubuntu based filesystem,
