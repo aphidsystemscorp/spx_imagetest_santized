@@ -90,7 +90,11 @@ With this I attempted to build wayland myself.....
 
 22. ```spx.user.build.waylandkms.py``` - build wayland kms
 23. ```spx.user.build.libgbm.py``` - build libgbm
-24. todo: rest of deps
+24. trying to find a version of wayland that build using the r8sdk proved difficult.
+    wayland's build system requires a lot of specifics on the build host. I am not
+    convinced cross compiling wayland for arm on x86 is commonly done. If I were
+    moving forward with this - I would build up the arm device's filesystem and
+    try to compile natively..
     
 **Build Compositor**
 
