@@ -105,8 +105,8 @@ With this I attempted to build wayland myself.....
     https://lists.freedesktop.org/archives/wayland-devel/2021-December/042064.html
 
     so if I were moving forward with chromium on whitehawk - I would try to use the kernel
-    from the yocto build (which was able to run OpenGLes/EGL demos from the PowerVR SDK, and replace
-    the linux userspace with a more modern distro. I did attempt this by trying to graft a Nvidia
+    from the yocto build (on which I was able to run OpenGLes/EGL demos from the PowerVR SDK, and
+    replace the linux userspace with a more modern distro. I did attempt this by trying to graft a Nvidia
     Jetson based recent ubuntu filesystem onto the renesas kernel. This experiment was not finished.
     After this was achieved I may have just used the wayland that was present on the ubuntu based
     filesystem (if it supported EGL), or built a custom wayland which would have been easier given
