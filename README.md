@@ -23,7 +23,7 @@ Image Builder for Renesas R-Car V4H WhiteHawk
 **More working copy preparations**
 
 11. ```spx.outputfolders.prep.py``` - create output folders
-12. ```sudo chown -R $USER:$USER tmp``` - fix permissions
+12. ```mkdir tmp``` - fix permissions
 
 **Build Yocto Docker Image**
 
