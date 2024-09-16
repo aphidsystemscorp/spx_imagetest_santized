@@ -26,7 +26,7 @@ conf_vars = {
 }
 
 r = r8sdk.run([
-             "/home/michael/.staging-spx-may25/r8toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/cmake",
+             sysroot_host/"usr"/"bin"/"cmake",
              "-DCMAKE_INSTALL_PREFIX=%s"%str(sysroot_dest/"opt"),
              "-DCMAKE_SYSROOT=%s"%"/",
              spx_path.root/"testprogs"/"compositor",
