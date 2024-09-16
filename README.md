@@ -113,7 +113,7 @@ With this I attempted to build wayland myself.....
     the more recent dependency and toolchain/buildsystem package versions.
 
     A potental alternate path for r8a779g0 (whitehawk) is to not use dunfell kernel at all but use a
-    mainline kernel gentoo - it seems r8a779g0 support was added to the mainline kernel some time ago.
+    mainline kernel and gentoo - it seems r8a779g0 support was added to the mainline kernel some time ago.
     see: https://github.com/torvalds/linux/commits/v6.11/arch/arm64/boot/dts/renesas/r8a779g0-white-hawk.dts
     
     Note: even if using a recent linux distro and kernel - you will likely still need an EGL based graphics solution. 
